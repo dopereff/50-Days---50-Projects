@@ -34,7 +34,7 @@ body {
   align-items: center;
   justify-content: center; */
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: rgb(36, 38, 39);
   background: linear-gradient(
     90deg,
@@ -47,6 +47,7 @@ body {
 .title {
   display: flex;
   margin: 24px;
+  text-align: center;
 }
 
 h1 {
@@ -70,15 +71,36 @@ h1 {
   color: white;
   flex: 1.5;
   margin: 10px;
-  position: relative;
+  /* position: relative; */
   transition: flex 0.7s ease-in;
   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.6);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.upper,
+.lower {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.upper {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.lower {
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .panel h3 {
   font-size: 36px;
-  position: absolute;
+  /* position: absolute; */
   top: 20px;
   left: 20px;
   margin: 0;
@@ -86,14 +108,9 @@ h1 {
   text-transform: uppercase;
 }
 
-h5 {
-  text-transform: uppercase;
-  margin-bottom: 0;
-}
-
 .stats {
   opacity: 0;
-  position: absolute;
+  /* position: absolute; */
   top: 70px;
   left: 20px;
   display: flex;
@@ -116,11 +133,11 @@ h4 {
 }
 
 .info {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  /* position: absolute; */
+  /* bottom: 20px;
+  left: 20px; */
   width: 50%;
-  height: 30%;
+  height: 70%;
   padding: 10px;
   overflow-y: scroll;
   background: hsla(0, 0%, 0%, 0.3);
@@ -129,21 +146,27 @@ h4 {
 }
 
 .skills-wrapper {
-  position: absolute;
-  top: 511px;
-  right: 15px;
+  /* position: absolute; */
+  /* top: 511px;
+  right: 15px; */
   width: 45%;
-  height: 30%;
+  height: 70%;
   background: hsla(0, 0%, 0%, 0.3);
-  padding: 10px;
   opacity: 0;
+}
+
+.skill {
+  overflow-y: scroll;
+  height: 61%;
+  padding: 10px;
 }
 
 .skills-icons {
   display: flex;
   justify-content: space-around;
   padding: 0;
-  margin: 0;
+  margin: 10px 0 10px;
+  height: 30%;
 }
 
 .skillButton {
@@ -151,8 +174,8 @@ h4 {
   border: 1px solid rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.6);
 
-  max-width: 60px;
-  max-height: 60px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 10px;
 }
 
@@ -167,27 +190,25 @@ h4 {
   box-shadow: 0 0 10px 0px;
 }
 
-.skills img {
+.skills-wrapper img {
   max-width: 100%;
   max-height: 100%;
 }
 
-.skill {
-  height: 140px;
-  overflow-y: scroll;
-}
-
 .skill p {
-  margin-top: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
-.skills li {
+.skills-wrapper li {
   list-style: none;
 }
 
 h5 {
   font-size: 20px;
   margin: 0;
+  text-transform: uppercase;
+  margin-bottom: 0;
 }
 
 #skillContent1,
@@ -229,9 +250,8 @@ h5 {
 }
 
 .panel.active {
-  flex: 5;
+  flex-grow: 5;
   box-shadow: 0 0 5px 0px rgba(255, 255, 255, 0.2);
-
 }
 
 .panel.active h3,
@@ -252,5 +272,85 @@ h5 {
   .panel:nth-of-type(4),
   .panel:nth-of-type(5) {
     display: none;
+  }
+}
+
+@media (max-width: 1650px) {
+  .container {
+    flex-direction: column;
+  }
+  .skill {
+    height: 70%;
+  }
+
+  .skills-icons {
+    height: 20%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .skillButton {
+    width: 60px;
+    height: 60px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 1024px) {
+  .panel {
+    margin-bottom: 20px;
+  }
+
+  .lower {
+    padding: 0 20px 20px 20px;
+  }
+
+  .skillButton {
+    width: 55px;
+    height: 55px;
+  }
+
+  .skill {
+    margin-top: 20px;
+    height: 67%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .skill {
+    height: 69%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .panel {
+    max-height: 80vh;
+  }
+
+  .info,
+  .skills-wrapper {
+    width: 100%;
+    max-height: 50%;
+    flex-grow: 1;
+  }
+
+  .info {
+    margin-bottom: 20px;
+  }
+
+  .lower {
+    flex-direction: column;
+    height: 60%;
+    flex-wrap: nowrap;
+  }
+
+  .skill {
+    height: 65%;
   }
 }
